@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# ریدایرکت لینک‌های کوتاه (6 کاراکتر)
+RewriteRule ^([a-zA-Z0-9]{6})$ redirect.php?code=$1 [L,QSA]
+
+# اگر فایل یا پوشه واقعی وجود داشت، از ریدایرکت خودداری کن
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9]{6})$ redirect.php?code=$1 [L,QSA]
